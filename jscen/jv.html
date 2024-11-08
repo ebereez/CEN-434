@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    function average() {
+    let sum = 0;
+    let numbers = [];
+
+    // Loop through 10 times to get user input
+    for (let i = 1; i <= 10; i++) {
+        let input = prompt(`Enter number ${i}:`);
+        input = parseFloat(input); // Ensure input is a number
+        if (!isNaN(input)) {
+            numbers.push(input);  // Add the input to the numbers array
+            sum += input;         // Add the input to the sum
+        } else {
+            console.log("Invalid input, please enter a number.");
+            i--; // Decrement i to retry this iteration
+        }
+    }
+
+    // Calculate average
+    let avg = sum / numbers.length;
+    console.log(`The average is: ${avg}`);
+}
+
+average();
+
+
+
+function getLastTwoChars(str) {
+  // Check if the string is at least 2 characters long
+  if (str.length >= 2) {
+    return str.slice(-2);  // Return the last 2 characters
+  } else {
+    return str;  // If string is shorter than 2 characters, return the whole string
+  }
+}
+
+// Get user input
+const userInput = prompt("Please enter a string:");
+
+// Call the function with the user input and display the result
+if (userInput !== null) {
+  console.log("The last two characters are:", getLastTwoChars(userInput));
+} else {
+  console.log("No input provided.");
+}
+
+
+function factorial(num) {
+            if (num === 0 || num === 1) {
+                return 1;
+            }
+            let result = 1;
+            for (let i = 2; i <= num; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        // Function to calculate combinations (n choose r)
+        function combination(n, r) {
+            if (r > n) return 0;  // If r > n, combinations are not possible
+            return factorial(n) / (factorial(r) * factorial(n - r));
+        }
+
+        // Function to calculate based on the conditions
+        function calculateCombination(x, y) {
+            let n, r;
+
+            if (x > y) {
+                n = x;
+                r = y;
+            } else if (x === y) {
+                n = x + 1; // x + 1 combination y
+                r = y;
+            } else {
+                n = y;
+                r = x; // y combination x
+            }
+
+            return combination(n, r);
+        }
+
+        // Prompt the user for input
+        const x = parseInt(prompt("Enter value for x (a non-negative integer):"));
+        const y = parseInt(prompt("Enter value for y (a non-negative integer):"));
+
+        // Validate the input values
+        if (isNaN(x) || isNaN(y) || x < 0 || y < 0) {
+            alert("Please enter valid non-negative integers for x and y.");
+        } else {
+            // Calculate the combination based on the conditions
+            const result = calculateCombination(x, y);
+
+            // Display the result
+            alert(`The result is: ${result}`);
+        }
+
+</script>
+</html
